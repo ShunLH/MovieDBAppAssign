@@ -7,3 +7,6 @@
 //
 
 import Foundation
+struct MovieGenreListResponse: Codable {
+    let genres : [MovieGenreResponse]
+}

@@ -7,5 +7,7 @@ target 'MovieDBApp' do
 
   # Pods for MovieDBApp
 	pod 'RealmSwift'
+	pod 'SDWebImage', '~> 5.0'
+	pod 'ReachabilitySwift'
 
 end

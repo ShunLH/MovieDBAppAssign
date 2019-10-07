@@ -6,4 +6,10 @@
 //  Copyright © 2019 SLH. All rights reserved.
 //
 
-import Foundation
+enum Category : String,CaseIterable {
+	case NowPlaying = "Now Playing"
+	case Popular = "Popular"
+	case TopRated = "Top Rated"
+	case Upcoming = "Upcoming"
+
+}

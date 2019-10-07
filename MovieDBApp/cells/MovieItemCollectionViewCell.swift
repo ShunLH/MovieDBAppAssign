@@ -7,12 +7,29 @@
 //
 
 import UIKit
+import SDWebImage
+
 
 class MovieItemCollectionViewCell: UICollectionViewCell {
 
+   
+    @IBOutlet weak var imageViewMoviePoster : UIImageView!
+    
+    var data : MovieVO? {
+        didSet {
+            if let data = data {
+                
+                imageViewMoviePoster.sd_setImage(with: URL(string: "\(API.BASE_IMG_URL)\(data.poster_path ?? "")"), placeholderImage: #imageLiteral(resourceName: "icons8-movie"), options:  SDWebImageOptions.progressiveLoad, completed: nil)
+            }
+        }
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    }
+	static var identifier : String {
+        return String(describing: self)
     }
 
 }

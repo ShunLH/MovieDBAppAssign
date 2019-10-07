@@ -55,7 +55,7 @@ struct MovieInfoResponse : Codable {
         case tagline = "tagline"
     }
     
-    static func saveMovie(data : MovieInfoResponse, realm : Realm) {
+	static func saveMovie(data : MovieInfoResponse, realm : Realm, catgory : Category?) {
         //TODO: Implement Realm Save Movie Logic
 		guard let id = data.id, id > 0 else {
             print("failed to save MovieInfoResponse")
@@ -90,6 +90,9 @@ struct MovieInfoResponse : Codable {
         movieEntity.revenue = Int(data.revenue ?? 0)
         movieEntity.runtime = Int(data.runtime ?? 0)
         movieEntity.tagline = data.tagline
+		if let category = catgory {
+			movieEntity.category = category.rawValue
+		}
 		
 		do {
 			try realm.write {
