@@ -27,7 +27,6 @@ class MovieGenreVO : Object {
 extension MovieGenreVO {
     static func getMovieGenreVOById(realm : Realm, genreId : Int) -> MovieGenreVO? {
         //TODO: Implement Realm Fetch Request for MovieGenreVO by genreID
-		let realm = try! Realm()
 //		let predicate = NSPredicate(format: "id ==\(genreId)")
 		let movies = realm.objects(MovieGenreVO.self).filter("id ==\(genreId)")
 		

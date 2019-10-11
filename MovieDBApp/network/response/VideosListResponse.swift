@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct VideoListResponse : Codable {
+	var id : Int
+	var results : [Trailer]
+}

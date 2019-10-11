@@ -7,13 +7,20 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
 
 class YTPlayerViewController: UIViewController {
+	
+	@IBOutlet weak var playerView : YTPlayerView!
+	var key : String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		print("key\(key)")
+		if let key = key {
+			playerView.load(withVideoId:key)
 
-        // Do any additional setup after loading the view.
+		}
     }
     
 

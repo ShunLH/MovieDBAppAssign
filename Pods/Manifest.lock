@@ -1,4 +1,7 @@
 PODS:
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
   - ReachabilitySwift (4.3.1)
   - Realm (3.17.3):
     - Realm/Headers (= 3.17.3)
@@ -8,25 +11,32 @@ PODS:
   - SDWebImage (5.1.1):
     - SDWebImage/Core (= 5.1.1)
   - SDWebImage/Core (5.1.1)
+  - youtube-ios-player-helper (0.1.6)
 
 DEPENDENCIES:
+  - NVActivityIndicatorView
   - ReachabilitySwift
   - RealmSwift
   - SDWebImage (~> 5.0)
+  - youtube-ios-player-helper (~> 0.1.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - NVActivityIndicatorView
     - ReachabilitySwift
     - Realm
     - RealmSwift
     - SDWebImage
+    - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   Realm: 5a1d9d47bfc101dd597668b1a8af4288a2557f6d
   RealmSwift: b7fdc2d18616621c31df5c7a398a45a2163f8eb0
   SDWebImage: 96d7f03415ccb28d299d765f93557ff8a617abd8
+  youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: 1506594caf7cc862b3b8ad0b292cc57de9f3a09d
+PODFILE CHECKSUM: 3398a0390892241e02c02a2ccc8238d5107b0a88
 
 COCOAPODS: 1.6.1

@@ -7,3 +7,10 @@
 //
 
 import Foundation
+struct Trailer : Codable {
+	var id : String
+	var key : String?
+	var name : String?
+	var size : Int?
+	var type : String?
+}

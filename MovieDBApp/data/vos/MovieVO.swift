@@ -31,18 +31,13 @@ class MovieVO : Object {
     @objc dynamic var runtime : Int = 0
     @objc dynamic var tagline : String?
 	@objc dynamic var category : String?
+	@objc dynamic var rating : Double = 0.0
     var genres = List<MovieGenreVO>()
     
-//	var production_companies = List<ProductionCompanyVO>()
-    //Production Companies
-    //TODO: Save Production Companies
-    
-    //TODO: Set Primary Key
+
 	override static func primaryKey() -> String? {
 		return "id"
 	}
-
-    //TODO: Set genre_ids as ignored
 	
 	override static func ignoredProperties() -> [String] {
 		return ["genre_ids"]
@@ -52,6 +47,12 @@ class MovieVO : Object {
 
 
 extension MovieVO {
+	static func updateMovieRating(movie : MovieVO,rating:Double,realm:Realm) {
+		try? realm.write {
+			movie.rating = rating
+			print("Updating movie id \(movie.id) rating - \(rating)")
+		}
+	}
     static func getMovieById(movieId : Int, realm : Realm) -> MovieVO? {
         //TODO: Implement realm object fetch API
 //		let predicate = NSPredicate(format: "id = %@ ", movieId)

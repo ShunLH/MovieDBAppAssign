@@ -26,18 +26,19 @@ class HomeViewController: UIViewController {
 		return refreshControl
 	}()
 	
-	lazy var activityIndicator : UIActivityIndicatorView = {
-		let ui = UIActivityIndicatorView()
-		ui.translatesAutoresizingMaskIntoConstraints = false
-		ui.startAnimating()
-		ui.style = UIActivityIndicatorView.Style.large
-		return ui
-	}()
+//	lazy var activityIndicator : UIActivityIndicatorView = {
+//		let ui = UIActivityIndicatorView()
+//		ui.translatesAutoresizingMaskIntoConstraints = false
+//		ui.startAnimating()
+//		ui.style = UIActivityIndicatorView.Style.large
+//		return ui
+//	}()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tableViewMovieList.delegate = self
 		tableViewMovieList.dataSource = self
+		tableViewMovieList.addSubview(refreshControl)
 		print("category \(Category.NowPlaying)")
 		initGenreListFetchRequest()
 		initMovieListFetchRequest()
@@ -46,6 +47,11 @@ class HomeViewController: UIViewController {
 	fileprivate func initGenreListFetchRequest() {
 		let genres = realm.objects(MovieGenreVO.self)
 		if genres.isEmpty {
+			if NetworkUtils.checkReachable() == false {
+				print("No Internet connection")
+//				Dialog.showAlert(viewController: self, title: "Error", message: "No Internet Connection!")
+				return
+			}
 			MovieModel.shared.fetchMovieGenres{ genres in
 				genres.forEach { [weak self] genre in
 					DispatchQueue.main.async {
@@ -56,46 +62,45 @@ class HomeViewController: UIViewController {
 		}
 	}
 	fileprivate func initMovieListFetchRequest() {
-		
-		if NetworkUtils.checkReachable() == false {
-			print("No Internet connection")
-			
-			//			Dialog.showAlert(viewController: self, title: "Error", message: "No Internet Connection!")
-			return
-		}
+
 		let nowPlayingList = MovieVO.getMovieByCategory(category: Category.NowPlaying, realm: realm)
 		if nowPlayingList == nil || nowPlayingList!.isEmpty {
+			showIndicatior("Loading....")
 			fetchNowPlayingMovies()
 			
-		}else {
-			movieList[Category.NowPlaying] = nowPlayingList
 		}
 		let popularList = MovieVO.getMovieByCategory(category: Category.Popular, realm: realm)
 		if popularList == nil || popularList!.isEmpty {
+			showIndicatior("Loading....")
+
 			fetchPopularMovies()
 			
-		}else {
-			movieList[Category.Popular] = popularList
 		}
 		
 		let topRatedList = MovieVO.getMovieByCategory(category: Category.TopRated, realm: realm)
+		
 		if topRatedList == nil || topRatedList!.isEmpty {
+			showIndicatior("Loading....")
+
 			fetchTopRatedMovies()
-		}else {
-			movieList[Category.TopRated] = topRatedList
 		}
 		
 		let upcomingList = MovieVO.getMovieByCategory(category: Category.Upcoming, realm: realm)
 		if upcomingList == nil || upcomingList!.isEmpty {
+			showIndicatior("Loading....")
+
 			fetchUpcomingMovies()
-		}else {
-			movieList[Category.Upcoming] = upcomingList
 		}
 		tableViewMovieList.reloadData()
 	}
 	
 	
 	fileprivate func fetchNowPlayingMovies() {
+		if NetworkUtils.checkReachable() == false {
+			print("No Internet connection")
+			Dialog.showAlert(viewController: self, title: "Error", message: "No Internet Connection!")
+			return
+		}
 		for index in 0...2 {
 
 			MovieModel.shared.fetchNowPlayingMovies(pageId: index) { [weak self] movies in
@@ -106,7 +111,7 @@ class HomeViewController: UIViewController {
 					}
 					let indexPath = [IndexPath(row: 0, section: 0)]
 					self?.tableViewMovieList.reloadRows(at:indexPath, with: .automatic)
-					self?.activityIndicator.stopAnimating()
+					self?.hideIndicator()
 					self?.refreshControl.endRefreshing()
 				}
 				
@@ -116,6 +121,10 @@ class HomeViewController: UIViewController {
 	}
 	
 	fileprivate func fetchPopularMovies() {
+		if NetworkUtils.checkReachable() == false {
+			print("No Internet connection")
+			return
+		}
 		for index in 0...2 {
 			MovieModel.shared.fetchPopularMovies(pageId: index) { [weak self] movies in
 				DispatchQueue.main.async { [weak self] in
@@ -126,8 +135,7 @@ class HomeViewController: UIViewController {
 					print("saving....Popular")
 					let indexPath = [IndexPath(row: 0, section: 1)]
 					self?.tableViewMovieList.reloadRows(at:indexPath, with: .automatic)
-
-					self?.activityIndicator.stopAnimating()
+					self?.hideIndicator()
 					self?.refreshControl.endRefreshing()
 				}
 				
@@ -138,6 +146,10 @@ class HomeViewController: UIViewController {
 		
 	}
 	fileprivate func fetchUpcomingMovies() {
+		if NetworkUtils.checkReachable() == false {
+			print("No Internet connection")
+			return
+		}
 		for index in 0...2 {
 			MovieModel.shared.fetchUpcomingMovies(pageId: index) { [weak self] movies in
 				DispatchQueue.main.async { [weak self] in
@@ -148,7 +160,8 @@ class HomeViewController: UIViewController {
 					let indexPath = [IndexPath(row: 0, section: 3)]
 					self?.tableViewMovieList.reloadRows(at:indexPath, with: .automatic)
 
-					self?.activityIndicator.stopAnimating()
+					self?.hideIndicator()
+
 					self?.refreshControl.endRefreshing()
 				}
 				
@@ -158,6 +171,10 @@ class HomeViewController: UIViewController {
 	
 	
 	fileprivate func fetchTopRatedMovies() {
+		if NetworkUtils.checkReachable() == false {
+			print("No Internet connection")
+			return
+		}
 		for index in 0...2 {
 			MovieModel.shared.fetchTopRatedMovies(pageId: index) { [weak self] movies in
 				DispatchQueue.main.async { [weak self] in
@@ -168,7 +185,7 @@ class HomeViewController: UIViewController {
 					let indexPath = [IndexPath(row: 0, section: 2)]
 					self?.tableViewMovieList.reloadRows(at:indexPath, with: .automatic)
 
-					self?.activityIndicator.stopAnimating()
+					self?.hideIndicator()
 					self?.refreshControl.endRefreshing()
 				}
 				
@@ -179,17 +196,18 @@ class HomeViewController: UIViewController {
 	
 	@objc func handleRefresh(_ refreshControl: UIRefreshControl) {
 		
-		if movieList.count != 0 {
-			movieList.values.forEach{ movie in
-				try! realm.write {
-					//					print("Deleting \(movie.original_title ?? "xxx")" )
-					realm.delete(movie)
+		categories.forEach { (category) in
+			if let movieList = MovieVO.getMovieByCategory(category: category, realm: realm){
+				try? realm.write {
+					realm.delete(movieList)
 				}
 			}
 			
-			//            self.fetchPopularMovies()
 		}
-		
+		fetchNowPlayingMovies()
+		fetchPopularMovies()
+		fetchTopRatedMovies()
+		fetchUpcomingMovies()
 		
 	}
 	
@@ -207,7 +225,8 @@ extension HomeViewController : UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieListTableViewCell.identifier, for: indexPath) as? MovieListTableViewCell else {return UITableViewCell()}
 		let key = categories[indexPath.section]
-		let mvList = movieList[key] ?? nil
+		let mvList = MovieVO.getMovieByCategory(category: key, realm: realm)
+//		let mvList = movieList[key] ?? nil
 		cell.moviesList = mvList ?? nil
 		cell.delegate = self
 		return cell
@@ -220,14 +239,19 @@ extension HomeViewController : UITableViewDataSource {
 extension HomeViewController : UITableViewDelegate , MovieListTableViewCellDelegate{
 	func showMovieDetail(movieID: Int) {
 		selectedMovieId = movieID
-		let storyBoard = UIStoryboard(name: "MovieDetail", bundle: nil)
-		if let vc = storyBoard.instantiateViewController(withIdentifier: MovieDetailViewController.identifier) as? MovieDetailViewController {
-			vc.movieId = movieID
-		}
+		performSegue(withIdentifier: "movie_detail_sb_segue", sender: self)
+
+		
 	}
 	
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		return categories[section].rawValue
 	}
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if let vc = segue.destination as? MovieDetailViewController {
+			vc.movieId = selectedMovieId
+		}
+	}
 }
+
 

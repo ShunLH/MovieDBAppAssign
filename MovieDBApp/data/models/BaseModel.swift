@@ -10,6 +10,7 @@ import Foundation
 
 
 class BaseModel {
+	typealias Parameters = [String:Any]
 	func responseHandler<T : Decodable>(data : Data?, urlResponse : URLResponse?, error : Error?) -> T? {
 		let TAG = String(describing: T.self)
 		if error != nil {
@@ -19,7 +20,7 @@ class BaseModel {
 		
 		let response = urlResponse as! HTTPURLResponse
 		
-		if response.statusCode == 200 {
+		if response.statusCode == 200 || response.statusCode == 201 {
 			guard let data = data else {
 				print("\(TAG): empty data")
 				return nil
@@ -34,6 +35,18 @@ class BaseModel {
 		} else {
 			print("\(TAG): Network Error - Code: \(response.statusCode)")
 			return nil
+			
 		}
+	}
+	
+	func getURLPostRequest(route:String,
+							param:Parameters) -> URLRequest? {
+		guard let url = URL(string: route) else {return nil}
+		var request = URLRequest(url: url)
+		request.addValue("application/json", forHTTPHeaderField: "content-type")
+		request.httpMethod = "POST"
+		request.httpBody = try? JSONSerialization.data(withJSONObject: param, options: [])
+
+		return request
 	}
 }

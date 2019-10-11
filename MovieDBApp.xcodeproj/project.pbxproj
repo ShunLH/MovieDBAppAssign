@@ -11,6 +11,15 @@
 		EF10BAEC2349B278007ECBB6 /* MovieDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF10BAEB2349B278007ECBB6 /* MovieDetail.storyboard */; };
 		EF10BAEE2349B497007ECBB6 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF10BAED2349B497007ECBB6 /* MovieDetail.swift */; };
 		EF10BAF02349C928007ECBB6 /* MovieDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF10BAEF2349C928007ECBB6 /* MovieDetailResponse.swift */; };
+		EF10BB16234C8C7D007ECBB6 /* YTPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF10BB15234C8C7D007ECBB6 /* YTPlayerViewController.swift */; };
+		EF10BB18234C9590007ECBB6 /* VideosListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF10BB17234C9590007ECBB6 /* VideosListResponse.swift */; };
+		EF10BB1A234C95B6007ECBB6 /* Trailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF10BB19234C95B6007ECBB6 /* Trailer.swift */; };
+		EF10BB1C234D975C007ECBB6 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF10BB1B234D975C007ECBB6 /* TokenResponse.swift */; };
+		EF10BB1E234D9A29007ECBB6 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF10BB1D234D9A29007ECBB6 /* BaseModel.swift */; };
+		EF10BB20234D9AD7007ECBB6 /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF10BB1F234D9AD7007ECBB6 /* SharedConstants.swift */; };
+		EF10BB22234DA153007ECBB6 /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF10BB21234DA153007ECBB6 /* SessionResponse.swift */; };
+		EF13333123503399005EEEE3 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13333023503399005EEEE3 /* Dialog.swift */; };
+		EF1333332350389F005EEEE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1333322350389F005EEEE3 /* Extensions.swift */; };
 		EF28A21323490CD900C0BD8A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF28A21223490CD900C0BD8A /* Category.swift */; };
 		EF2FA6272344B529000F09F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2FA6262344B529000F09F6 /* AppDelegate.swift */; };
 		EF2FA6292344B529000F09F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2FA6282344B529000F09F6 /* SceneDelegate.swift */; };
@@ -35,6 +44,12 @@
 		EF3A7C372347A95000D99A7F /* MovieGenreListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3A7C362347A95000D99A7F /* MovieGenreListResponse.swift */; };
 		EF3A7C392347A96C00D99A7F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3A7C382347A96C00D99A7F /* LoginResponse.swift */; };
 		EF3A7C3B2347AB8000D99A7F /* MovieGenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3A7C3A2347AB8000D99A7F /* MovieGenreResponse.swift */; };
+		EF834173234DD3F600FE8656 /* StatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF834172234DD3F600FE8656 /* StatusResponse.swift */; };
+		EF834175234DDBA700FE8656 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF834174234DDBA700FE8656 /* ProfileViewController.swift */; };
+		EF8FC617234DF600007A0C92 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF83417D234DF22600FE8656 /* Account.storyboard */; };
+		EF8FC61A234DF7DD007A0C92 /* ProfileTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8FC619234DF7DD007A0C92 /* ProfileTabBarController.swift */; };
+		EF8FC61C234EE8AB007A0C92 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8FC61B234EE8AB007A0C92 /* CardView.swift */; };
+		EF8FC61E234F210E007A0C92 /* UserVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8FC61D234F210E007A0C92 /* UserVO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +59,15 @@
 		EF10BAEB2349B278007ECBB6 /* MovieDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieDetail.storyboard; sourceTree = "<group>"; };
 		EF10BAED2349B497007ECBB6 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
 		EF10BAEF2349C928007ECBB6 /* MovieDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailResponse.swift; sourceTree = "<group>"; };
+		EF10BB15234C8C7D007ECBB6 /* YTPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTPlayerViewController.swift; sourceTree = "<group>"; };
+		EF10BB17234C9590007ECBB6 /* VideosListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosListResponse.swift; sourceTree = "<group>"; };
+		EF10BB19234C95B6007ECBB6 /* Trailer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trailer.swift; sourceTree = "<group>"; };
+		EF10BB1B234D975C007ECBB6 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
+		EF10BB1D234D9A29007ECBB6 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		EF10BB1F234D9AD7007ECBB6 /* SharedConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConstants.swift; sourceTree = "<group>"; };
+		EF10BB21234DA153007ECBB6 /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
+		EF13333023503399005EEEE3 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
+		EF1333322350389F005EEEE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EF28A21223490CD900C0BD8A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		EF2FA6232344B529000F09F6 /* MovieDBApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDBApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF2FA6262344B529000F09F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +94,12 @@
 		EF3A7C362347A95000D99A7F /* MovieGenreListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGenreListResponse.swift; sourceTree = "<group>"; };
 		EF3A7C382347A96C00D99A7F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		EF3A7C3A2347AB8000D99A7F /* MovieGenreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGenreResponse.swift; sourceTree = "<group>"; };
+		EF834172234DD3F600FE8656 /* StatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResponse.swift; sourceTree = "<group>"; };
+		EF834174234DDBA700FE8656 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EF83417D234DF22600FE8656 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Account.storyboard; path = "/ShunLH/PADC IOS/Assignments/MovieDBApp/MovieDBApp/storyboards/Account.storyboard"; sourceTree = "<absolute>"; };
+		EF8FC619234DF7DD007A0C92 /* ProfileTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarController.swift; sourceTree = "<group>"; };
+		EF8FC61B234EE8AB007A0C92 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		EF8FC61D234F210E007A0C92 /* UserVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +131,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EF10BB23234DA47C007ECBB6 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				EF3A7C302347A43B00D99A7F /* MovieModel.swift */,
+				EF3A7C322347A92500D99A7F /* LoginModel.swift */,
+				EF10BB1D234D9A29007ECBB6 /* BaseModel.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		EF2FA61A2344B529000F09F6 = {
 			isa = PBXGroup;
 			children = (
@@ -122,8 +162,9 @@
 		EF2FA6252344B529000F09F6 /* MovieDBApp */ = {
 			isa = PBXGroup;
 			children = (
+				EF8FC618234DF7BC007A0C92 /* components */,
 				EF2FA64723465B60000F09F6 /* cells */,
-				EF2FA64523465B33000F09F6 /* model */,
+				EF2FA64523465B33000F09F6 /* data */,
 				EF2FA63D23465966000F09F6 /* utils */,
 				EF2FA63C2344B7BD000F09F6 /* network */,
 				EF2FA63B2344B797000F09F6 /* storyboards */,
@@ -141,10 +182,12 @@
 			isa = PBXGroup;
 			children = (
 				EF2FA62A2344B529000F09F6 /* HomeViewController.swift */,
+				EF10BB15234C8C7D007ECBB6 /* YTPlayerViewController.swift */,
 				EF2FA64823465C4A000F09F6 /* SearchMovieListViewController.swift */,
 				EF2FA64A23465C67000F09F6 /* MovieDetailViewController.swift */,
 				EF2FA64C23465C8E000F09F6 /* LoginViewController.swift */,
 				EF10BAED2349B497007ECBB6 /* MovieDetail.swift */,
+				EF834174234DDBA700FE8656 /* ProfileViewController.swift */,
 			);
 			path = viewcontrollers;
 			sourceTree = "<group>";
@@ -152,6 +195,7 @@
 		EF2FA63B2344B797000F09F6 /* storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				EF83417D234DF22600FE8656 /* Account.storyboard */,
 				EF2FA62C2344B529000F09F6 /* Main.storyboard */,
 				EF10BAEB2349B278007ECBB6 /* MovieDetail.storyboard */,
 			);
@@ -172,6 +216,9 @@
 				EF2FA63E23465977000F09F6 /* API.swift */,
 				EF2FA64023465992000F09F6 /* Routes.swift */,
 				EF2FA64223465ABD000F09F6 /* NetworkUtil.swift */,
+				EF10BB1F234D9AD7007ECBB6 /* SharedConstants.swift */,
+				EF13333023503399005EEEE3 /* Dialog.swift */,
+				EF1333322350389F005EEEE3 /* Extensions.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -185,18 +232,22 @@
 				EF3A7C382347A96C00D99A7F /* LoginResponse.swift */,
 				EF3A7C3A2347AB8000D99A7F /* MovieGenreResponse.swift */,
 				EF10BAEF2349C928007ECBB6 /* MovieDetailResponse.swift */,
+				EF10BB17234C9590007ECBB6 /* VideosListResponse.swift */,
+				EF10BB19234C95B6007ECBB6 /* Trailer.swift */,
+				EF10BB1B234D975C007ECBB6 /* TokenResponse.swift */,
+				EF10BB21234DA153007ECBB6 /* SessionResponse.swift */,
+				EF834172234DD3F600FE8656 /* StatusResponse.swift */,
 			);
 			path = response;
 			sourceTree = "<group>";
 		};
-		EF2FA64523465B33000F09F6 /* model */ = {
+		EF2FA64523465B33000F09F6 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				EF10BB23234DA47C007ECBB6 /* models */,
 				EF2FA64623465B38000F09F6 /* vos */,
-				EF3A7C302347A43B00D99A7F /* MovieModel.swift */,
-				EF3A7C322347A92500D99A7F /* LoginModel.swift */,
 			);
-			path = model;
+			path = data;
 			sourceTree = "<group>";
 		};
 		EF2FA64623465B38000F09F6 /* vos */ = {
@@ -205,6 +256,7 @@
 				EF3A7C2C2347A3D500D99A7F /* MovieVO.swift */,
 				EF3A7C2E2347A3EE00D99A7F /* MovieGenreVO.swift */,
 				EF28A21223490CD900C0BD8A /* Category.swift */,
+				EF8FC61D234F210E007A0C92 /* UserVO.swift */,
 			);
 			path = vos;
 			sourceTree = "<group>";
@@ -216,6 +268,15 @@
 				EF2FA65023466064000F09F6 /* MovieItemCollectionViewCell.swift */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		EF8FC618234DF7BC007A0C92 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				EF8FC619234DF7DD007A0C92 /* ProfileTabBarController.swift */,
+				EF8FC61B234EE8AB007A0C92 /* CardView.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +342,7 @@
 				EF10BAEC2349B278007ECBB6 /* MovieDetail.storyboard in Resources */,
 				EF2FA6332344B52B000F09F6 /* LaunchScreen.storyboard in Resources */,
 				EF2FA6302344B52B000F09F6 /* Assets.xcassets in Resources */,
+				EF8FC617234DF600007A0C92 /* Account.storyboard in Resources */,
 				EF2FA62E2344B529000F09F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,19 +381,23 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MovieDBApp/Pods-MovieDBApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -347,17 +413,30 @@
 			files = (
 				EF2FA64D23465C8E000F09F6 /* LoginViewController.swift in Sources */,
 				EF3A7C372347A95000D99A7F /* MovieGenreListResponse.swift in Sources */,
+				EF10BB1E234D9A29007ECBB6 /* BaseModel.swift in Sources */,
+				EF13333123503399005EEEE3 /* Dialog.swift in Sources */,
+				EF834173234DD3F600FE8656 /* StatusResponse.swift in Sources */,
 				EF10BAF02349C928007ECBB6 /* MovieDetailResponse.swift in Sources */,
 				EF3A7C2A2347A34900D99A7F /* MovieInfoResponse.swift in Sources */,
+				EF834175234DDBA700FE8656 /* ProfileViewController.swift in Sources */,
+				EF8FC61A234DF7DD007A0C92 /* ProfileTabBarController.swift in Sources */,
 				EF3A7C3B2347AB8000D99A7F /* MovieGenreResponse.swift in Sources */,
 				EF3A7C352347A94100D99A7F /* MovieListResponse.swift in Sources */,
+				EF10BB18234C9590007ECBB6 /* VideosListResponse.swift in Sources */,
+				EF8FC61E234F210E007A0C92 /* UserVO.swift in Sources */,
 				EF2FA62B2344B529000F09F6 /* HomeViewController.swift in Sources */,
+				EF1333332350389F005EEEE3 /* Extensions.swift in Sources */,
 				EF3A7C2F2347A3EE00D99A7F /* MovieGenreVO.swift in Sources */,
+				EF10BB16234C8C7D007ECBB6 /* YTPlayerViewController.swift in Sources */,
+				EF8FC61C234EE8AB007A0C92 /* CardView.swift in Sources */,
+				EF10BB22234DA153007ECBB6 /* SessionResponse.swift in Sources */,
 				EF3A7C392347A96C00D99A7F /* LoginResponse.swift in Sources */,
 				EF2FA64923465C4A000F09F6 /* SearchMovieListViewController.swift in Sources */,
 				EF3A7C332347A92500D99A7F /* LoginModel.swift in Sources */,
+				EF10BB1C234D975C007ECBB6 /* TokenResponse.swift in Sources */,
 				EF2FA6272344B529000F09F6 /* AppDelegate.swift in Sources */,
 				EF2FA64323465ABD000F09F6 /* NetworkUtil.swift in Sources */,
+				EF10BB1A234C95B6007ECBB6 /* Trailer.swift in Sources */,
 				EF2FA64B23465C67000F09F6 /* MovieDetailViewController.swift in Sources */,
 				EF2FA65223466064000F09F6 /* MovieItemCollectionViewCell.swift in Sources */,
 				EF2FA64123465992000F09F6 /* Routes.swift in Sources */,
@@ -365,6 +444,7 @@
 				EF2FA64F2346603E000F09F6 /* MovieListTableViewCell.swift in Sources */,
 				EF3A7C312347A43B00D99A7F /* MovieModel.swift in Sources */,
 				EF3A7C2D2347A3D500D99A7F /* MovieVO.swift in Sources */,
+				EF10BB20234D9AD7007ECBB6 /* SharedConstants.swift in Sources */,
 				EF2FA6292344B529000F09F6 /* SceneDelegate.swift in Sources */,
 				EF28A21323490CD900C0BD8A /* Category.swift in Sources */,
 				EF10BAEE2349B497007ECBB6 /* MovieDetail.swift in Sources */,

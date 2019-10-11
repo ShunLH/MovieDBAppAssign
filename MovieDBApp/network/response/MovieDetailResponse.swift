@@ -7,11 +7,11 @@
 //
 
 import Foundation
-
+import RealmSwift
 struct MovieDetailResponse : Codable {
     let adult : Bool?
 	let backdrop_path : String?
-	let belongs_to_collection : String?
+//	let belongs_to_collection : String?
 	let budget : Int?
 	let homepage : String?
 	let id : Int?
@@ -30,5 +30,34 @@ struct MovieDetailResponse : Codable {
 	let video : Bool?
 	let vote_average : Double?
 	let vote_count : Int?
+	
+	
+	static func convertToMovieVO(data : MovieDetailResponse, realm : Realm) -> MovieVO {
+        //TODO: Write Convert Logic
+        let movieVO = MovieVO()
+        
+        movieVO.popularity = data.popularity ?? 0.0
+        movieVO.vote_count = Int(data.vote_count ?? 0)
+        movieVO.video = data.video ?? false
+        movieVO.poster_path = data.poster_path
+        movieVO.id = Int(data.id ?? 0)
+        movieVO.adult = data.adult ?? false
+        movieVO.backdrop_path = data.backdrop_path
+        movieVO.original_language = data.original_language
+        movieVO.original_title = data.original_title
+        movieVO.title = data.title
+        movieVO.vote_average = data.vote_average ?? 0.0
+        movieVO.overview = data.overview
+        movieVO.release_date = data.release_date
+        movieVO.budget = Int(data.budget ?? 0)
+        movieVO.homepage = data.homepage
+        movieVO.imdb_id = data.imdb_id
+        movieVO.revenue = Int(data.revenue ?? 0)
+        movieVO.runtime = Int(data.runtime ?? 0)
+        movieVO.tagline = data.tagline
 
+        return movieVO
+    }
+	
+	
 }

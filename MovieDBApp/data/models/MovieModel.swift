@@ -14,8 +14,13 @@ class MovieModel : BaseModel {
 	
 	override private init() {}
 	
+	
+	func rateMovie(movieId : Int , session_id : String,completion : @escaping (StatusResponse) -> Void){
+		let route = URL(string: "\(Routes.ROUTE_MOVIE)/\(movieId)/rating?api_key=\(API.KEY)&session_id=\(session_id)")!
+		print("rate movie Route \(route)")
+	}
 	func fetchMovieVideos(movieId : Int, completion : @escaping ([Trailer]) -> Void){
-		let route = URL(string: "\(Routes.ROUTE_MOVIE_DETAILS)/\(movieId)/videos?api_key=\(API.KEY)")!
+		let route = URL(string: "\(Routes.ROUTE_MOVIE)/\(movieId)/videos?api_key=\(API.KEY)")!
 		URLSession.shared.dataTask(with: route) { (data, response, error) in
 			let response : VideoListResponse? = self.responseHandler(data: data, urlResponse: response, error: error)
 			if let data = response {
@@ -25,34 +30,34 @@ class MovieModel : BaseModel {
 	}
 	
 	func fetchMoviesByName(movieName : String, completion : @escaping ([MovieInfoResponse]) -> Void) {
-        let route = URL(string: "\(Routes.ROUTE_SEACRH_MOVIES)?api_key=\(API.KEY)&query=\(movieName.replacingOccurrences(of: " ", with: "%20") )")!
-        URLSession.shared.dataTask(with: route) { (data, urlResponse, error) in
-            let response : MovieListResponse? = self.responseHandler(data: data, urlResponse: urlResponse, error: error)
-            if let data = response {
-                completion(data.results)
-            }
-        }.resume()
-    }
+		let route = URL(string: "\(Routes.ROUTE_SEACRH_MOVIES)?api_key=\(API.KEY)&query=\(movieName.replacingOccurrences(of: " ", with: "%20") )")!
+		URLSession.shared.dataTask(with: route) { (data, urlResponse, error) in
+			let response : MovieListResponse? = self.responseHandler(data: data, urlResponse: urlResponse, error: error)
+			if let data = response {
+				completion(data.results)
+			}
+		}.resume()
+	}
 	
 	func fetchMovieDetails(movieId : Int, completion: @escaping (MovieDetailResponse) -> Void) {
-		   let route = URL(string: "\(Routes.ROUTE_MOVIE_DETAILS)/\(movieId)?api_key=\(API.KEY)")!
-		   URLSession.shared.dataTask(with: route) { (data, urlResponse, error) in
-			   let response : MovieDetailResponse? = self.responseHandler(data: data, urlResponse: urlResponse, error: error)
-			   if let data = response {
-				   completion(data)
-			   }
-		   }.resume()
-	   }
+		let route = URL(string: "\(Routes.ROUTE_MOVIE)/\(movieId)?api_key=\(API.KEY)")!
+		URLSession.shared.dataTask(with: route) { (data, urlResponse, error) in
+			let response : MovieDetailResponse? = self.responseHandler(data: data, urlResponse: urlResponse, error: error)
+			if let data = response {
+				completion(data)
+			}
+		}.resume()
+	}
 	func fetchSimilarMovies(movieId : Int,pageId : Int = 1, completion : @escaping ([MovieInfoResponse]) -> Void) {
-        let route = URL(string: "\(Routes.ROUTE_MOVIE_DETAILS)/\(movieId)/similar?api_key=\(API.KEY)&page=\(pageId)")!
+		let route = URL(string: "\(Routes.ROUTE_MOVIE)/\(movieId)/similar?api_key=\(API.KEY)&page=\(pageId)")!
 		print("route = \(route)")
-        URLSession.shared.dataTask(with: route) { (data, urlResponse, error) in
-            let response : MovieListResponse? = self.responseHandler(data: data, urlResponse: urlResponse, error: error)
-            if let data = response {
-                completion(data.results)
-            }
-        }.resume()
-    }
+		URLSession.shared.dataTask(with: route) { (data, urlResponse, error) in
+			let response : MovieListResponse? = self.responseHandler(data: data, urlResponse: urlResponse, error: error)
+			if let data = response {
+				completion(data.results)
+			}
+		}.resume()
+	}
 	func fetchNowPlayingMovies(pageId : Int = 1, completion: @escaping(([MovieInfoResponse])->Void)){
 		let route = URL(string:"\(Routes.ROUTE_NOW_PLAYING_MOVIES)&page=\(pageId)")!
 		
@@ -114,12 +119,12 @@ class MovieModel : BaseModel {
 	func fetchMovieGenres(completion : @escaping([MovieGenreResponse]) -> Void){
 		let route = URL(string: "\(Routes.ROUTE_MOVIE_GENRES)")!
 		let task = URLSession.shared.dataTask(with: route) { (data, urlResponse, error) in
-            let response : MovieGenreListResponse? = self.responseHandler(data: data, urlResponse: urlResponse, error: error)
-            if let data = response {
-                completion(data.genres)
-            }
-        }
-        task.resume()
+			let response : MovieGenreListResponse? = self.responseHandler(data: data, urlResponse: urlResponse, error: error)
+			if let data = response {
+				completion(data.genres)
+			}
+		}
+		task.resume()
 	}
 	
 	

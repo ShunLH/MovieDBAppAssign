@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct TokenResponse : Codable {
+	var success : Bool?
+	var expires_at : String?
+	var request_token : String?
+}

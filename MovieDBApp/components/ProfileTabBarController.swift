@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import UIKit
+class ProfileTabBarController : UITabBarController {
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		self.selectedIndex = 1
+	}
+}

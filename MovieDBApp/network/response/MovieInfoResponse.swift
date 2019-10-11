@@ -31,6 +31,7 @@ struct MovieInfoResponse : Codable {
     let revenue : Int?
     let runtime : Int?
     let tagline : String?
+	let rating : Double?
     
     enum CodingKeys:String,CodingKey {
         case popularity
@@ -53,6 +54,7 @@ struct MovieInfoResponse : Codable {
         case revenue
         case runtime
         case tagline = "tagline"
+		case rating
     }
     
 	static func saveMovie(data : MovieInfoResponse, realm : Realm, catgory : Category?) {
@@ -61,7 +63,7 @@ struct MovieInfoResponse : Codable {
             print("failed to save MovieInfoResponse")
             return
         }
-        
+		
         let movieEntity = MovieVO()
         movieEntity.popularity = data.popularity ?? 0.0
         movieEntity.vote_count = Int(data.vote_count ?? 0)
@@ -90,6 +92,7 @@ struct MovieInfoResponse : Codable {
         movieEntity.revenue = Int(data.revenue ?? 0)
         movieEntity.runtime = Int(data.runtime ?? 0)
         movieEntity.tagline = data.tagline
+		movieEntity.rating = data.rating ?? 0.0
 		if let category = catgory {
 			movieEntity.category = category.rawValue
 		}
@@ -126,7 +129,7 @@ struct MovieInfoResponse : Codable {
         movieVO.revenue = Int(data.revenue ?? 0)
         movieVO.runtime = Int(data.runtime ?? 0)
         movieVO.tagline = data.tagline
-
+		movieVO.rating = data.rating ?? 0.0
         return movieVO
     }
     

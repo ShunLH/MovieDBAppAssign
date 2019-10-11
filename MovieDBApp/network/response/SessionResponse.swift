@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct SessionResponse : Codable {
+	var success : Bool?
+	var session_id : String
+}

@@ -23,7 +23,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pHu-GO-G9f">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="543"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="outreach-Movies-logo" translatesAutoresizingMaskIntoConstraints="NO" id="uOs-se-dce">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-movie" translatesAutoresizingMaskIntoConstraints="NO" id="uOs-se-dce">
                                                 <rect key="frame" x="127" y="60" width="160" height="192"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="160" id="QNT-c0-Xx3"/>
@@ -41,6 +41,9 @@
                                                 <state key="normal" title="Play" image="icons8-play_filled">
                                                     <color key="titleColor" name="IconWhiteColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="clickOnPlayMovie:" destination="zAY-zc-VOg" eventType="touchUpInside" id="wTb-sy-3v4"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PEU-ct-JrC">
                                                 <rect key="frame" x="136.5" y="276" width="140.5" height="20.5"/>
@@ -66,17 +69,21 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iQj-4m-tEs">
-                                                <rect key="frame" x="20" y="467" width="136" height="60"/>
+                                                <rect key="frame" x="20" y="467" width="142" height="60"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MKu-HX-zdc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="60"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" ambiguous="YES" image="icons8-plus_math_filled" translatesAutoresizingMaskIntoConstraints="NO" id="dPn-Hh-TTD">
-                                                                <rect key="frame" x="8" y="0.0" width="44" height="34.5"/>
-                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="My List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGT-yS-6q9">
-                                                                <rect key="frame" x="0.0" y="39.5" width="60" height="20.5"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lje-Rj-csh">
+                                                                <rect key="frame" x="8" y="8" width="50" height="23.5"/>
+                                                                <color key="tintColor" name="IconWhiteColor"/>
+                                                                <state key="normal" image="icons8-plus_math_filled"/>
+                                                                <connections>
+                                                                    <action selector="clickOnWatchList:" destination="zAY-zc-VOg" eventType="touchUpInside" id="30W-Rx-gUl"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="My List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGT-yS-6q9">
+                                                                <rect key="frame" x="0.0" y="39.5" width="66" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                 <color key="textColor" name="IconWhiteColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -84,24 +91,27 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="dPn-Hh-TTD" secondAttribute="trailing" constant="8" id="1n5-76-miq"/>
-                                                            <constraint firstItem="dPn-Hh-TTD" firstAttribute="top" secondItem="MKu-HX-zdc" secondAttribute="top" id="23K-Cf-c4Q"/>
                                                             <constraint firstAttribute="trailing" secondItem="OGT-yS-6q9" secondAttribute="trailing" id="7oQ-WC-C9L"/>
-                                                            <constraint firstItem="dPn-Hh-TTD" firstAttribute="leading" secondItem="MKu-HX-zdc" secondAttribute="leading" constant="8" id="IVr-hD-Dpg"/>
-                                                            <constraint firstAttribute="width" constant="60" id="OJ7-Fv-mze"/>
+                                                            <constraint firstItem="lje-Rj-csh" firstAttribute="top" secondItem="MKu-HX-zdc" secondAttribute="top" constant="8" id="9xi-Uz-yoa"/>
                                                             <constraint firstItem="OGT-yS-6q9" firstAttribute="leading" secondItem="MKu-HX-zdc" secondAttribute="leading" id="ar5-hy-Jg9"/>
+                                                            <constraint firstItem="lje-Rj-csh" firstAttribute="leading" secondItem="MKu-HX-zdc" secondAttribute="leading" constant="8" id="e4Y-Gw-E40"/>
                                                             <constraint firstAttribute="bottom" secondItem="OGT-yS-6q9" secondAttribute="bottom" id="fgJ-aL-TqR"/>
+                                                            <constraint firstItem="lje-Rj-csh" firstAttribute="bottom" secondItem="OGT-yS-6q9" secondAttribute="top" constant="-8" id="hhG-Zw-itO"/>
                                                             <constraint firstAttribute="height" constant="60" id="mP9-AE-VNZ"/>
-                                                            <constraint firstItem="OGT-yS-6q9" firstAttribute="top" secondItem="dPn-Hh-TTD" secondAttribute="bottom" constant="5" id="vGW-EC-guA"/>
+                                                            <constraint firstAttribute="trailing" secondItem="lje-Rj-csh" secondAttribute="trailing" constant="8" id="n94-rB-nrg"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gkn-iS-rky">
-                                                        <rect key="frame" x="76" y="0.0" width="60" height="60"/>
+                                                        <rect key="frame" x="82" y="0.0" width="60" height="60"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" ambiguous="YES" image="icons8-star_filled" translatesAutoresizingMaskIntoConstraints="NO" id="aez-qx-Mfi">
-                                                                <rect key="frame" x="8" y="0.0" width="44" height="34.5"/>
-                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GdZ-Y6-8oF">
+                                                                <rect key="frame" x="5" y="5" width="50" height="29.5"/>
+                                                                <color key="tintColor" name="IconWhiteColor"/>
+                                                                <state key="normal" image="icons8-thumb_up"/>
+                                                                <connections>
+                                                                    <action selector="clickOnRateBtn:" destination="zAY-zc-VOg" eventType="touchUpInside" id="RiA-mb-x14"/>
+                                                                </connections>
+                                                            </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSf-FO-E6O">
                                                                 <rect key="frame" x="0.0" y="39.5" width="60" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -111,13 +121,13 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="aez-qx-Mfi" firstAttribute="leading" secondItem="Gkn-iS-rky" secondAttribute="leading" constant="8" id="19s-3g-OUH"/>
-                                                            <constraint firstItem="aez-qx-Mfi" firstAttribute="top" secondItem="Gkn-iS-rky" secondAttribute="top" id="3D7-mc-9jw"/>
                                                             <constraint firstItem="bSf-FO-E6O" firstAttribute="leading" secondItem="Gkn-iS-rky" secondAttribute="leading" id="5D8-gK-gj6"/>
-                                                            <constraint firstItem="bSf-FO-E6O" firstAttribute="top" secondItem="aez-qx-Mfi" secondAttribute="bottom" constant="5" id="8CD-IW-Wth"/>
-                                                            <constraint firstAttribute="trailing" secondItem="aez-qx-Mfi" secondAttribute="trailing" constant="8" id="SR4-CS-ICO"/>
+                                                            <constraint firstItem="GdZ-Y6-8oF" firstAttribute="bottom" secondItem="bSf-FO-E6O" secondAttribute="top" constant="-5" id="RHZ-qU-hHS"/>
+                                                            <constraint firstAttribute="trailing" secondItem="GdZ-Y6-8oF" secondAttribute="trailing" constant="5" id="lSD-89-QKO"/>
+                                                            <constraint firstItem="GdZ-Y6-8oF" firstAttribute="leading" secondItem="Gkn-iS-rky" secondAttribute="leading" constant="5" id="lgX-qN-oNa"/>
                                                             <constraint firstAttribute="bottom" secondItem="bSf-FO-E6O" secondAttribute="bottom" id="rnv-S1-fAt"/>
                                                             <constraint firstAttribute="width" constant="60" id="vwY-f1-uFM"/>
+                                                            <constraint firstItem="GdZ-Y6-8oF" firstAttribute="top" secondItem="Gkn-iS-rky" secondAttribute="top" constant="5" id="xG6-ye-mfY"/>
                                                             <constraint firstAttribute="trailing" secondItem="bSf-FO-E6O" secondAttribute="trailing" id="xxz-ii-Yg6"/>
                                                         </constraints>
                                                     </view>
@@ -236,26 +246,61 @@
                         <viewLayoutGuide key="safeArea" id="4gb-w9-8nu"/>
                     </view>
                     <connections>
+                        <outlet property="btnAddList" destination="lje-Rj-csh" id="sZm-Fz-jci"/>
                         <outlet property="btnPlay" destination="hpE-Zq-kIh" id="fbk-ij-15u"/>
+                        <outlet property="btnRate" destination="GdZ-Y6-8oF" id="ZMT-rL-UhR"/>
                         <outlet property="collectionViewSimilarMovieList" destination="nih-s7-nC5" id="OZr-fh-QxT"/>
                         <outlet property="ivPoster" destination="uOs-se-dce" id="EwH-K2-Cud"/>
                         <outlet property="lblAdult" destination="NJy-uo-XLm" id="3xx-cb-bLw"/>
                         <outlet property="lblDuration" destination="Jxh-24-rDi" id="31z-dC-dxw"/>
                         <outlet property="lblMore" destination="dKH-Ds-AAt" id="Kg8-3z-rAX"/>
                         <outlet property="lblOverview" destination="zPi-r9-uVM" id="Rxs-5w-ruc"/>
+                        <segue destination="7Wt-pv-IvR" kind="show" identifier="sb-segue-ytPlayer" id="V44-SB-jty"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIW-jA-aH4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="366.66666666666669" y="155.35714285714286"/>
         </scene>
+        <!--Player View Controller-->
+        <scene sceneID="PFd-xx-Oq3">
+            <objects>
+                <viewController id="7Wt-pv-IvR" customClass="YTPlayerViewController" customModule="MovieDBApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zd9-z6-GCy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5d-m1-kiF" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="9U9-la-IYt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4dp-lL-AFU" firstAttribute="trailing" secondItem="x5d-m1-kiF" secondAttribute="trailing" id="DUU-2h-pX5"/>
+                            <constraint firstItem="x5d-m1-kiF" firstAttribute="top" secondItem="4dp-lL-AFU" secondAttribute="top" id="WFw-XJ-TGC"/>
+                            <constraint firstItem="x5d-m1-kiF" firstAttribute="leading" secondItem="4dp-lL-AFU" secondAttribute="leading" id="ewe-7K-fE1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4dp-lL-AFU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fab-zX-KEE"/>
+                    <connections>
+                        <outlet property="playerView" destination="x5d-m1-kiF" id="HDf-1N-pTh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RnB-bf-qju" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1500" y="155"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icons8-movie" width="25" height="25"/>
         <image name="icons8-play_filled" width="25" height="25"/>
         <image name="icons8-plus_math_filled" width="25" height="25"/>
-        <image name="icons8-star_filled" width="25" height="25"/>
-        <image name="outreach-Movies-logo" width="1000" height="563"/>
+        <image name="icons8-thumb_up" width="25" height="25"/>
         <namedColor name="IconWhiteColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

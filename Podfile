@@ -9,5 +9,8 @@ target 'MovieDBApp' do
 	pod 'RealmSwift'
 	pod 'SDWebImage', '~> 5.0'
 	pod 'ReachabilitySwift'
+	pod 'youtube-ios-player-helper', '~> 0.1.4'
+	pod 'NVActivityIndicatorView'
+
 
 end

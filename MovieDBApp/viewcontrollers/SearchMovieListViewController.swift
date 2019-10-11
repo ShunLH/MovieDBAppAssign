@@ -13,21 +13,10 @@ class SearchMovieListViewController: UIViewController {
 	let searchController = UISearchController(searchResultsController: nil)
 	
 	@IBOutlet weak var collectionViewSearchMovieList : UICollectionView!
-    @IBOutlet weak var lblMovieNotFound : UILabel!
-
 	
 	static var identifier : String {
 		return String(describing: self)
 	}
-	
-	lazy var activityIndicator : UIActivityIndicatorView = {
-		let ui = UIActivityIndicatorView()
-		ui.translatesAutoresizingMaskIntoConstraints = false
-		ui.stopAnimating()
-		ui.isHidden = true
-		ui.style = UIActivityIndicatorView.Style.whiteLarge
-		return ui
-	}()
 	
 	private var searchedResult = [MovieInfoResponse]()
 	let realm  = try! Realm()
@@ -54,14 +43,10 @@ class SearchMovieListViewController: UIViewController {
 		searchController.searchBar.delegate = self
 		searchController.searchBar.barStyle = .black
 		
-		
 		collectionViewSearchMovieList.dataSource = self
 		collectionViewSearchMovieList.delegate = self
-		collectionViewSearchMovieList.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
 		
-		self.view.addSubview(activityIndicator)
-		activityIndicator.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
-		activityIndicator.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 0).isActive = true
+		
 		
 	}
 	
@@ -70,40 +55,49 @@ class SearchMovieListViewController: UIViewController {
 extension SearchMovieListViewController : UISearchBarDelegate {
 	
 	func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-		activityIndicator.startAnimating()
+		showIndicatior("Searching....")
 		let searchedMovie = searchBar.text ?? ""
 		MovieModel.shared.fetchMoviesByName(movieName: searchedMovie) { [weak self] results in
 			self?.searchedResult = results
 			
 			DispatchQueue.main.async {
-				
+				if results.isEmpty {
+					print("No movie found with name \"\(searchedMovie)\" ")
+					Dialog.showAlert(viewController: self!, title: "No Movie", message: "No movie found with name \"\(searchedMovie)")
+					self?.hideIndicator()
+					return
+				}
 				results.forEach({ [weak self] (movieInfo) in
+				
 					MovieInfoResponse.saveMovie(data: movieInfo, realm: self!.realm,catgory: nil)
 				})
 				
-				if results.isEmpty {
-					self?.lblMovieNotFound.text = "No movie found with name \"\(searchedMovie)\" "
-					return
-				}
 				
-				self?.lblMovieNotFound.text = ""
 				self?.collectionViewSearchMovieList.reloadData()
+				self?.hideIndicator()
 				
-				self?.activityIndicator.stopAnimating()
 			}
 		}
+	}
+	
+	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+		searchBar.endEditing(true)
+		self.hideIndicator()
 	}
 }
 
 extension SearchMovieListViewController : UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 4
+		return searchedResult.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieItemCollectionViewCell.identifier, for: indexPath) as? MovieItemCollectionViewCell else {
 			return UICollectionViewCell()
 		}
+		let movieVO = MovieInfoResponse.convertToMovieVO(data: searchedResult[indexPath.row], realm: realm)
+		cell.data = movieVO
+		
 		return cell
 	}
 	
